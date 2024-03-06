@@ -1,2 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Overpass';
+    box-sizing: border-box;
+}
 
+body {
+    background: #343841;
+    font-size: 1.3rem;
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #24272d;
+    color: #ffffff;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem .7rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+input,
+select {
+    font-size: 1.3rem;
+    padding: .5rem .7rem;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+}
+
+select {
+    background-color: #24272d;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/* To do header */
+.todo-container {
+    /* background-color: #98999b; */
+    padding: 1.5rem;
+}
+
+.todo-container header {
+    text-align: center;
+    padding: 0 .5rem .5rem;
+    border-bottom: 2px solid #555963;
+}
+
+/* To do form */
+#todo-form,
+#edit-form {
+    padding: 1rem;
+    border-bottom: 2px solid #555963;
+}
+
+#todo-form p,
+#edit-form p {
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    display: flex;
+}
+
+.form-control input {
+    margin-right: .5rem;
+}
+
+#cancel-edit-btn {
+    margin-top: 1rem;
+}
+
+/* To do toolbar */
+#toolbar {
+    padding: 1rem;
+    border-bottom: 2px solid #555963;
+    display: flex;
+}
+
+#toolbar h4 {
+    margin-bottom: .5rem;
+}
+
+#search {
+    border-right: 2px solid #555963;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    width: 65%;
+}
+
+#search form {
+    display: flex;
+}
+
+#search input {
+    width: 100%;
+    margin-right: .5rem;
+}
+
+#filter {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+#filter select {
+    flex: 1;
+}
+
+/* To do list*/
+.todo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 2px solid #43484e;
+    transition: .2s;
+}
+
+.todo h3 {
+    flex: 1;
+}
+
+.todo button {
+    margin-left: .5rem;
+}
+
+.done {
+    background-color: #1a1c20;
+}
+
+.done h3 {
+    text-decoration: line-through;
+}
