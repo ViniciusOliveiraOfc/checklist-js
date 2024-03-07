@@ -35,6 +35,10 @@ button:hover {
     background-color: #000000;
 }
 
+button i {
+    pointer-events: none;
+}
+
 input,
 select {
     font-size: 1.3rem;
