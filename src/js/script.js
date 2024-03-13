@@ -4,6 +4,7 @@ const todoList = document.querySelector('#todo-list');
 const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
+const filterSelect = document.querySelector('#filter-select');
 
 let oldInputValue;
 
@@ -51,6 +52,34 @@ const updateTodo = (text) => {
             todoTitle.innerText = text;
         }
     })
+}
+
+const filterTodos = (text) => {
+    let todos = todoList.querySelectorAll('.todo');
+    switch (text) {
+        case 'all':
+            todos.forEach((todo) => {
+                todo.style.display = 'flex';
+            })
+            break;
+        
+        case 'done':
+            todos.forEach((todo) => {
+                todo.classList.contains('done') 
+                ? (todo.style.display = 'flex') 
+                : (todo.style.display = 'none');
+            })
+            break;
+        
+        case 'todo':
+            todos.forEach((todo) => {
+                todo.classList.contains('done')
+                ? (todo.style.display = 'none')
+                : (todo.style.display = 'flex');
+            })
+
+            break;
+    }
 }
 
 todoForm.addEventListener('submit', (e) => {
@@ -102,4 +131,8 @@ editForm.addEventListener('submit', (e) => {
     }
 
     toggleForms();
+})
+
+filterSelect.addEventListener('change', (e) => {
+    filterTodos(filterSelect.value);
 })
