@@ -1,4 +1,4 @@
-# Weather Citys
+# To Do Checklist
 Demo Image:
 ![image](https://github.com/ViniciusOliveiraOfc/checklist-js/assets/136126554/1c346524-de27-4738-8e6f-801901efc101)
 
