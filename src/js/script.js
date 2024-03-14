@@ -5,6 +5,8 @@ const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
 const filterSelect = document.querySelector('#filter-select');
+const searchInput = document.querySelector('#search-input');
+const eraseBtn = document.querySelector('#erase-button');
 
 let oldInputValue;
 
@@ -135,4 +137,23 @@ editForm.addEventListener('submit', (e) => {
 
 filterSelect.addEventListener('change', (e) => {
     filterTodos(filterSelect.value);
+})
+
+searchInput.addEventListener('keyup', (e) => {
+    let todos = document.querySelectorAll('.todo');
+
+    let searchInputValue = searchInput.value; 
+
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].querySelector('h3').innerHTML.toLowerCase().includes(searchInputValue.toLowerCase())) {
+            todos[i].style.display = 'flex';
+        } else {
+            todos[i].style.display = 'none';
+        }
+    }
+})
+
+eraseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchInput.value = '';
 })
