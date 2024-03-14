@@ -3,12 +3,15 @@ const todoInput = document.querySelector('#todo-input');
 const todoList = document.querySelector('#todo-list');
 const editForm = document.querySelector('#edit-form');
 const editInput = document.querySelector('#edit-input');
+const toolbarEl = document.querySelector('#toolbar');
 const cancelEditBtn = document.querySelector('#cancel-edit-btn');
 const filterSelect = document.querySelector('#filter-select');
 const searchInput = document.querySelector('#search-input');
 const eraseBtn = document.querySelector('#erase-button');
 
 let oldInputValue;
+
+toolbarEl.style.display = 'flex';
 
 const saveTodo = (text) => {
     const todo = document.createElement('div');
@@ -43,6 +46,11 @@ const toggleForms = () => {
     todoForm.classList.toggle('hide');
     editForm.classList.toggle('hide');
     todoList.classList.toggle('hide');
+    if (toolbarEl.style.display === 'flex') {
+        toolbarEl.style.display = 'none';
+    } else {
+        toolbarEl.style.display = 'flex';
+    }
 }
 
 const updateTodo = (text) => {
