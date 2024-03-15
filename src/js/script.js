@@ -92,6 +92,28 @@ const filterTodos = (text) => {
     }
 }
 
+const saveTodosToLocalStorage = () => {
+    const todos = document.querySelectorAll('.todo');
+    const todosArray = [];
+
+    todos.forEach((todo) => {
+        const todoText = todo.querySelector('h3').textContent;
+        todosArray.push(todoText);
+    })
+    localStorage.setItem("todos", JSON.stringify(todosArray));
+}
+
+const loadTodosFromLocalStorage = () => {
+    const todosArray = JSON.parse(localStorage.getItem("todos"));
+
+    if (todosArray) {
+        todoList.innerHTML = '';
+        todosArray.forEach((todoText) => {
+            saveTodo(todoText);
+        })
+    }
+}
+
 todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -99,6 +121,7 @@ todoForm.addEventListener('submit', (e) => {
 
     if (inputValue) {
         saveTodo(inputValue);
+        saveTodosToLocalStorage();
     }
 })
 
@@ -124,6 +147,7 @@ document.addEventListener('click', (e) => {
 
     if (targetEl.classList.contains('remove-todo')) {
         parentEl.remove();
+        saveTodosToLocalStorage();
     }
 })
 
@@ -141,6 +165,7 @@ editForm.addEventListener('submit', (e) => {
     }
 
     toggleForms();
+    saveTodosToLocalStorage();
 })
 
 filterSelect.addEventListener('change', (e) => {
@@ -165,3 +190,5 @@ eraseBtn.addEventListener('click', (e) => {
     e.preventDefault();
     searchInput.value = '';
 })
+
+loadTodosFromLocalStorage();
